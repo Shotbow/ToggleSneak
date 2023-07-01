@@ -5,7 +5,7 @@
   "configGui.option.toggleSprint": "Toggle Sprint",
   "configGui.option.toggleDisplay": "Mostrar interfaz de usuario",
   "configGui.option.shiftReleaseTime": "Milisegundos hasta el agache regular",
-  "displayGui.sneaking": "Agachar",
+  "displayGui.sneaking": "Agacharse",
   "displayGui.sprinting": "Correr",
   "keybinding.toggle.sneak": "Toggle Sneak",
   "keybinding.toggle.sprint": "Toggle Sprint"
