@@ -12,11 +12,12 @@ import net.minecraftforge.eventbus.api.EventPriority;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.shotbow.ToggleSneak.ToggleSneak;
 
+@Getter
 @OnlyIn(Dist.CLIENT)
 public class KeyBinding {
 
-    private @Getter KeyMapping toggleSneakKey;
-    private @Getter KeyMapping toggleSprintKey;
+    private KeyMapping toggleSneakKey;
+    private KeyMapping toggleSprintKey;
 
     public KeyBinding(){
         FMLJavaModLoadingContext.get().getModEventBus().addListener(
