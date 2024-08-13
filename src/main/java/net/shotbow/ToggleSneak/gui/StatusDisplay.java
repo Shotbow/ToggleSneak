@@ -4,7 +4,7 @@ import net.minecraft.ChatFormatting;
 import net.minecraft.client.Minecraft;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.MutableComponent;
-import net.minecraftforge.client.event.RenderGuiOverlayEvent;
+import net.minecraftforge.client.event.CustomizeGuiOverlayEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.shotbow.ToggleSneak.ToggleSneak;
 import net.shotbow.ToggleSneak.object.ToggleConfig;
@@ -13,7 +13,7 @@ import net.shotbow.ToggleSneak.object.ToggleStatus;
 public class StatusDisplay {
 
     @SubscribeEvent
-    public void render(RenderGuiOverlayEvent.Post e) {
+    public void render(CustomizeGuiOverlayEvent e) {
         ToggleConfig config = ToggleConfig.getInstance();
         Minecraft minecraft = ToggleSneak.getToggleSneak().getMinecraft();
         if(minecraft.player == null

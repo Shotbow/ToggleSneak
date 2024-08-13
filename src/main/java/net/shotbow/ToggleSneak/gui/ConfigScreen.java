@@ -72,7 +72,7 @@ public class ConfigScreen extends Screen {
 
     @Override
     public void render(@NotNull GuiGraphics guiGraphics, int mouseX, int mouseY, float ticks) {
-        this.renderDirtBackground(guiGraphics);
+        this.renderMenuBackground(guiGraphics);
         guiGraphics.drawCenteredString(this.font, this.title,
                 this.width / 2, TITLE_HEIGHT, 0xFFFFFF);
         super.render(guiGraphics, mouseX, mouseY, ticks);
