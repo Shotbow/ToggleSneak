@@ -4,8 +4,8 @@ import lombok.Getter;
 import net.minecraft.client.Minecraft;
 import net.minecraftforge.client.ConfigScreenHandler;
 import net.minecraftforge.common.MinecraftForge;
-import net.minecraftforge.fml.ModLoadingContext;
 import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.minecraftforge.fml.loading.FMLPaths;
 import net.shotbow.ToggleSneak.gui.ConfigScreen;
 import net.shotbow.ToggleSneak.gui.StatusDisplay;
@@ -26,12 +26,12 @@ public class ToggleSneak {
     private @Getter final KeyBinding keyBinding;
     private @Getter final ToggleStatus toggleStatus;
 
-    public ToggleSneak() {
+    public ToggleSneak(FMLJavaModLoadingContext context) {
         toggleSneak = this;
         loadConfig();
-        this.keyBinding = new KeyBinding();
+        this.keyBinding = new KeyBinding(context);
         this.toggleStatus = new ToggleStatus();
-        ModLoadingContext.get().registerExtensionPoint(
+        context.registerExtensionPoint(
                 ConfigScreenHandler.ConfigScreenFactory.class,
                 () -> new ConfigScreenHandler.ConfigScreenFactory((minecraft, screen) -> new ConfigScreen())
         );

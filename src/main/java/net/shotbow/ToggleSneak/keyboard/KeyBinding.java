@@ -19,8 +19,8 @@ public class KeyBinding {
     private KeyMapping toggleSneakKey;
     private KeyMapping toggleSprintKey;
 
-    public KeyBinding(){
-        FMLJavaModLoadingContext.get().getModEventBus().addListener(
+    public KeyBinding(FMLJavaModLoadingContext context){
+        context.getModEventBus().addListener(
                 EventPriority.NORMAL,
                 false,
                 RegisterKeyMappingsEvent.class, e -> {

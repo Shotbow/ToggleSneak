@@ -106,8 +106,6 @@ sourceSets.main.resources { srcDir 'src/generated/resources' }
 
 dependencies {
     minecraft "net.minecraftforge:forge:${minecraft_version}-${forge_version}"
-    // Hack fix for now, force jopt-simple to be exactly 5.0.4 because Mojang ships that version, but some transitive dependencies request 6.0+
-    implementation('net.sf.jopt-simple:jopt-simple:5.0.4') { version { strictly '5.0.4' } }
 }
 
 // This block of code expands all declared replace properties in the specified resource targets.
@@ -146,6 +144,10 @@ tasks.named('jar', Jar).configure {
 tasks.withType(JavaCompile).configureEach {
     options.encoding = 'UTF-8' // Use the UTF-8 charset for Java compilation
 }
+
+// IntelliJ no longer downloads javadocs and sources by default.
+// This tells Gradle to force IDEA to do it.
+idea.module { downloadJavadoc = downloadSources = true }
 
 // Merge the resources and classes into the same directory.
 // This is done because java expects modules to be in a single directory.
