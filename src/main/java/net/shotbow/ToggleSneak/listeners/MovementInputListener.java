@@ -8,7 +8,7 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraftforge.client.event.MovementInputUpdateEvent;
 import net.minecraftforge.event.TickEvent;
 import net.minecraftforge.event.entity.EntityMountEvent;
-import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.minecraftforge.eventbus.api.listener.SubscribeEvent;
 import net.shotbow.ToggleSneak.ToggleSneak;
 import net.shotbow.ToggleSneak.object.ToggleConfig;
 import net.shotbow.ToggleSneak.object.ToggleStatus;
@@ -83,7 +83,7 @@ public class MovementInputListener {
     }
 
     @SubscribeEvent
-    public void setDismounting(EntityMountEvent e){
+    public void setDismounting(EntityMountEvent e) {
         Player player = ToggleSneak.getToggleSneak().getMinecraft().player;
         if(e.isMounting()
                 || player == null
@@ -100,10 +100,7 @@ public class MovementInputListener {
     }
 
     @SubscribeEvent
-    public void unsetDismounting(TickEvent.ClientTickEvent e) {
-        if (e.phase != TickEvent.Phase.END) {
-            return;
-        }
+    public void unsetDismounting(TickEvent.PlayerTickEvent.Post e) {
         if(isDismounting) {
             dismountingTicks += 1;
             if(dismountingTicks >= 15) {

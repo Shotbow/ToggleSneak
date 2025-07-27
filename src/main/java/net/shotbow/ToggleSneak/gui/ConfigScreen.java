@@ -31,6 +31,7 @@ public class ConfigScreen extends Screen {
         int buttonY = TITLE_HEIGHT + 30; // position the two buttons below the title
         int sliderX = (screenWidth - BUTTON_WIDTH * 2) / 2; // center the slider horizontally
         int sliderY = buttonY + BUTTON_HEIGHT + 10; // position the slider below the buttons
+        int displayButtonY = sliderY + BUTTON_HEIGHT + 10;
         int doneButtonX = (screenWidth - LONG_BUTTON_WIDTH) / 2; // center the done button horizontally
         int doneButtonY = screenHeight - 30; // position the done button near the bottom of the screen
 
@@ -47,7 +48,8 @@ public class ConfigScreen extends Screen {
                 buttonY,
                 BUTTON_WIDTH,
                 BUTTON_HEIGHT,
-                Component.translatable("configGui.option.toggleSprint"), (widget, value) -> toggleConfig.getToggleSprint().set(value))
+                Component.translatable("configGui.option.toggleSprint"),
+                (widget, value) -> toggleConfig.getToggleSprint().set(value))
         );
 
         this.addRenderableWidget(this.releaseTimeSlider = new ForgeSlider(
@@ -64,6 +66,15 @@ public class ConfigScreen extends Screen {
                 0,
                 true
         ));
+
+        this.addRenderableWidget(CycleButton.onOffBuilder(toggleConfig.getToggleDisplay().get()).create(
+                sliderX,
+                displayButtonY,
+                LONG_BUTTON_WIDTH,
+                BUTTON_HEIGHT,
+                Component.translatable("configGui.option.toggleDisplay"),
+                (widget, value) -> toggleConfig.getToggleDisplay().set(value))
+        );
 
         this.addRenderableWidget(Button.builder(CommonComponents.GUI_DONE, btn -> onClose())
                 .bounds(doneButtonX, doneButtonY, LONG_BUTTON_WIDTH, BUTTON_HEIGHT)

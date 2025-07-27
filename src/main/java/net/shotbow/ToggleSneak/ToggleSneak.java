@@ -5,6 +5,7 @@ import net.minecraft.client.Minecraft;
 import net.minecraftforge.client.ConfigScreenHandler;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.fml.event.lifecycle.FMLLoadCompleteEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.minecraftforge.fml.loading.FMLPaths;
 import net.shotbow.ToggleSneak.gui.ConfigScreen;
@@ -35,6 +36,8 @@ public class ToggleSneak {
                 ConfigScreenHandler.ConfigScreenFactory.class,
                 () -> new ConfigScreenHandler.ConfigScreenFactory((minecraft, screen) -> new ConfigScreen())
         );
+        FMLLoadCompleteEvent.getBus(context.getModBusGroup())
+                .addListener(this::FMLLoadComplete);
         this.registerListeners();
     }
 
@@ -43,8 +46,12 @@ public class ToggleSneak {
     }
 
     private void registerListeners() {
-        MinecraftForge.EVENT_BUS.register(new StatusDisplay());
-        MinecraftForge.EVENT_BUS.register(new KeyboardListener());
         MinecraftForge.EVENT_BUS.register(new MovementInputListener());
     }
+
+    private void FMLLoadComplete(FMLLoadCompleteEvent e) {
+        new StatusDisplay();
+        new KeyboardListener();
+    }
+
 }

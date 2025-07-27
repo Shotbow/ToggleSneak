@@ -8,7 +8,6 @@ import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.client.event.RegisterKeyMappingsEvent;
 import net.minecraftforge.client.settings.KeyConflictContext;
 import net.minecraftforge.client.settings.KeyModifier;
-import net.minecraftforge.eventbus.api.EventPriority;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.shotbow.ToggleSneak.ToggleSneak;
 
@@ -19,15 +18,14 @@ public class KeyBinding {
     private KeyMapping toggleSneakKey;
     private KeyMapping toggleSprintKey;
 
-    public KeyBinding(FMLJavaModLoadingContext context){
-        context.getModEventBus().addListener(
-                EventPriority.NORMAL,
-                false,
-                RegisterKeyMappingsEvent.class, e -> {
-                    e.register(this.toggleSneakKey = getKeyMapping("toggle.sneak", InputConstants.KEY_G));
-                    e.register(this.toggleSprintKey = getKeyMapping("toggle.sprint", InputConstants.KEY_H));
-                }
-        );
+    public KeyBinding(FMLJavaModLoadingContext context) {
+        RegisterKeyMappingsEvent.getBus(context.getModBusGroup())
+                .addListener(this::registerMappings);
+    }
+
+    private void registerMappings(RegisterKeyMappingsEvent e) {
+        e.register(this.toggleSneakKey = getKeyMapping("toggle.sneak", InputConstants.KEY_G));
+        e.register(this.toggleSprintKey = getKeyMapping("toggle.sprint", InputConstants.KEY_H));
     }
 
     private KeyMapping getKeyMapping(String key, int keycode){

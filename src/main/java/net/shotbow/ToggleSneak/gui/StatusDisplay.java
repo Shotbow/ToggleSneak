@@ -5,19 +5,24 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.MutableComponent;
 import net.minecraftforge.client.event.CustomizeGuiOverlayEvent;
-import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.minecraftforge.eventbus.api.listener.SubscribeEvent;
 import net.shotbow.ToggleSneak.ToggleSneak;
 import net.shotbow.ToggleSneak.object.ToggleConfig;
 import net.shotbow.ToggleSneak.object.ToggleStatus;
 
 public class StatusDisplay {
 
+    public StatusDisplay() {
+        CustomizeGuiOverlayEvent.BUS.addListener(this::render);
+    }
+
     @SubscribeEvent
     public void render(CustomizeGuiOverlayEvent e) {
         ToggleConfig config = ToggleConfig.getInstance();
         Minecraft minecraft = ToggleSneak.getToggleSneak().getMinecraft();
         if(minecraft.player == null
-                || !config.getToggleDisplay().get()) {
+                || !config.getToggleDisplay().get()
+        ) {
             return;
         }
         ToggleStatus status = ToggleSneak.getToggleSneak().getToggleStatus();
@@ -34,7 +39,7 @@ public class StatusDisplay {
                     sneakingDisplayText,
                     1,
                     midPoint,
-                    0
+                    -1
             );
         }
         if(config.getToggleSprint().get()) {
@@ -50,7 +55,7 @@ public class StatusDisplay {
                     sprintingDisplayText,
                     1,
                     yHeight,
-                    0
+                    -1
             );
         }
     }
