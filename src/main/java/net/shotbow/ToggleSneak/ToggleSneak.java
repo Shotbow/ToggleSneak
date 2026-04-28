@@ -30,7 +30,7 @@ public class ToggleSneak {
     public ToggleSneak(FMLJavaModLoadingContext context) {
         toggleSneak = this;
         loadConfig();
-        this.keyBinding = new KeyBinding(context);
+        this.keyBinding = new KeyBinding();
         this.toggleStatus = new ToggleStatus();
         context.registerExtensionPoint(
                 ConfigScreenHandler.ConfigScreenFactory.class,

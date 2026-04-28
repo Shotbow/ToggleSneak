@@ -7,6 +7,7 @@
   "configGui.option.shiftReleaseTime": "Milliseconden tot normaal sluipen",
   "displayGui.sneaking": "Sluipen",
   "displayGui.sprinting": "Sprinten",
+  "key.category.togglesneak.togglesneak": "Sluipen omschakelen",
   "keybinding.toggle.sneak": "Sluipen omschakelen",
   "keybinding.toggle.sprint": "Sprinten omschakelen"
 }

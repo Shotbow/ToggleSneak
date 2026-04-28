@@ -7,6 +7,7 @@
   "configGui.option.shiftReleaseTime": "正常潜行等待毫秒数",
   "displayGui.sneaking": "潜行",
   "displayGui.sprinting": "疾跑",
+  "key.category.togglesneak.togglesneak": "切换到潜行",
   "keybinding.toggle.sneak": "切换到潜行",
   "keybinding.toggle.sprint": "切换到疾跑"
 }

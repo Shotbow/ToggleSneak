@@ -7,6 +7,7 @@
   "configGui.option.shiftReleaseTime": "通常スニークまでの秒数",
   "displayGui.sneaking": "スニーク",
   "displayGui.sprinting": "スプリント",
+  "key.category.togglesneak.togglesneak": "トグルスニーク",
   "keybinding.toggle.sneak": "トグルスニーク",
   "keybinding.toggle.sprint": "トグルスプリント"
 }

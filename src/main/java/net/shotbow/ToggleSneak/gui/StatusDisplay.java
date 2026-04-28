@@ -13,11 +13,11 @@ import net.shotbow.ToggleSneak.object.ToggleStatus;
 public class StatusDisplay {
 
     public StatusDisplay() {
-        CustomizeGuiOverlayEvent.BUS.addListener(this::render);
+        CustomizeGuiOverlayEvent.Chat.BUS.addListener(this::render);
     }
 
     @SubscribeEvent
-    public void render(CustomizeGuiOverlayEvent e) {
+    public void render(CustomizeGuiOverlayEvent.Chat e) {
         ToggleConfig config = ToggleConfig.getInstance();
         Minecraft minecraft = ToggleSneak.getToggleSneak().getMinecraft();
         if(minecraft.player == null

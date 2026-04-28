@@ -7,6 +7,7 @@
   "configGui.option.shiftReleaseTime": "Millisegundos até agachamento normal",
   "displayGui.sneaking": "Agachar",
   "displayGui.sprinting": "Correr",
+  "key.category.togglesneak.togglesneak": "Toggle Sneak",
   "keybinding.toggle.sneak": "Toggle Sneak",
   "keybinding.toggle.sprint": "Toggle Sprint"
 }

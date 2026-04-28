@@ -7,6 +7,7 @@
   "configGui.option.shiftReleaseTime": "Millisekuntia normaaliin hiipimiseen",
   "displayGui.sneaking": "Hiipii",
   "displayGui.sprinting": "Juoksee",
+  "key.category.togglesneak.togglesneak": "Toggle Sneak",
   "keybinding.toggle.sneak": "Toggle Sneak",
   "keybinding.toggle.sprint": "Toggle Sprint"
 }
