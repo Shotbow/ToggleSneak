@@ -26,7 +26,7 @@ Sneaking (HOLD) can be active by holding the sneak key. When you let go, you wil
 > You can unbind Quick Actions by clicking on the key button and then press escape (<kbd>Esc</kbd>).
 
 ### Version
-This mod is for 1.21.8 Minecraft clients using <a href="https://files.minecraftforge.net/net/minecraftforge/forge/">Forge</a>.
+This mod is for 1.21.11 Minecraft clients using <a href="https://files.minecraftforge.net/net/minecraftforge/forge/">Forge</a>.
 
 ### Installation
 - Download the <a href="https://github.com/Shotbow/ToggleSneak/releases">ToggleSneak jar</a> for the desired Minecraft version
